@@ -35,6 +35,10 @@ namespace ConverteBinario
             {
                 labelBaseAtualDestino.Text = "Binário";
             }
+            else
+            {
+                comboBoxBases.Text = "Binário";
+            }
         }
 
         private void textBoxDestino_TextChanged(object sender, EventArgs e)
@@ -73,19 +77,20 @@ namespace ConverteBinario
 
         public void convParaBin(string num)
         {
+
             // Usar o método isBin() para verificar se
             // num pode ser convertido em binário.
             if (!isBin(num))
             {
-                MessageBox.Show("Número incorreto." + num, "Alerta !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Número incorreto. " + num, "Alerta !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Converter a string num para inteiro.
-            int num_bin;
+            String resultado;
             try
             {
-                num_bin = Convert.ToInt32(num);
+                resultado = Convert.ToString(Convert.ToInt32(num, 2), 10);
             }
             catch (Exception)
             {
@@ -93,24 +98,25 @@ namespace ConverteBinario
                 return;
             }
 
-            textBoxDestino.Text = "Convertido com sucesso." + comboBoxBases.Text;
+            // Alterar o texto na caixa resultado.
+            textBoxDestino.Text = resultado;
         }
 
         public void convParaDec(string num)
         {
-            // Usar o método isBin() para verificar se
-            // num pode ser convertido em binário.
+            // Usar o método isDec() para verificar se
+            // num pode ser convertido em inteiro.
             if (!isDec(num))
             {
-                MessageBox.Show("Número incorreto." + num, "Alerta !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Número incorreto. " + num, "Alerta !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Converter a string num para inteiro.
-            int num_dec;
+            // Converter para decimal/string usando o Convet.
+            String resultado;
             try
             {
-                num_dec = Convert.ToInt32(num);
+                resultado = Convert.ToString(Convert.ToInt32(num, 10), 2);
             }
             catch (Exception)
             {
@@ -118,7 +124,8 @@ namespace ConverteBinario
                 return;
             }
 
-            textBoxDestino.Text = "Convertido com sucesso." + comboBoxBases.Text;
+            // Alterar o texto na caixa resultado.
+            textBoxDestino.Text = resultado;
         }
 
         private void buttonConverter_Click(object sender, EventArgs e)
@@ -140,5 +147,6 @@ namespace ConverteBinario
                 convParaBin(textBoxOrigem.Text);
             }
         }
+     
     }
 }

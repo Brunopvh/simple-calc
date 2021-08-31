@@ -4,6 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <PackageId>Conversor</PackageId>
+    <Authors>Bruno Silva e Bruno Sampaio</Authors>
+    <Product>Conversor de bases numéricas</Product>
+    <Description>Software para uso acadêmico</Description>
+    <Copyright>IFRO</Copyright>
   </PropertyGroup>
 
 </Project>
